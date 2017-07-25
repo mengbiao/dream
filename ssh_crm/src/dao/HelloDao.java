@@ -2,7 +2,7 @@ package dao;
 
 public interface HelloDao {
 
-	//Ìí¼ÓÓÃ»§
+	//æ·»åŠ äº†æ³¨é‡Š
 	public void add();
 
 }
