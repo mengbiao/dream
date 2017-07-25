@@ -6,7 +6,7 @@ import entity.User;
 
 public class HelloDaoImp implements HelloDao{
 
-	//得到hibernateTemplate对象
+	//寰楀埌hibernateTemplate瀵硅薄
 	private HibernateTemplate hibernateTemplate;
 	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
 		this.hibernateTemplate = hibernateTemplate;
@@ -18,7 +18,7 @@ public class HelloDaoImp implements HelloDao{
 //		HibernateTemplate hibernateTemplate=new HibernateTemplate(sessionFactory)
 		User user=new User();
 		user.setUserName("rose");
-		user.setAdress("保定");
+		user.setAdress("淇濆畾");
 		hibernateTemplate.save(user);
 	}
 

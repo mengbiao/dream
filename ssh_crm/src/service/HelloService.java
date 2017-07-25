@@ -7,16 +7,16 @@ import dao.HelloDao;
 @Transactional
 public class HelloService {
 
-	//×¢ÈëdaoµÄ¶ÔÏó
-	private HelloDao helloDao;
-	public void setHelloDao(HelloDao helloDao) {
-		this.helloDao = helloDao;
-	}
-	public void add() {
-		System.out.println("----->>service");
-		helloDao.add();
-		
-		
-	}
+	//æ³¨å…¥daoçš„å¯¹è±¡
+		private HelloDao helloDao;
+		public void setHelloDao(HelloDao helloDao) {
+			this.helloDao = helloDao;
+		}
+		public void add() {
+			System.out.println("----->>service");
+			helloDao.add();
+			
+			
+		}
 	
 }

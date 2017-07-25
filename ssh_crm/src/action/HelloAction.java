@@ -8,7 +8,7 @@ public class HelloAction extends ActionSupport{
 	
 	
 	/**
-	 * ×¢Èëservice
+	 * æ³¨å…¥service
 	 */
 	private HelloService helloService;
 	public void setHelloService(HelloService helloService) {
@@ -17,7 +17,7 @@ public class HelloAction extends ActionSupport{
 
 
 
-	//actionÖĞÃ¿´Î¶¼»áÖ´ĞĞ execute·½·¨
+	//actionä¸­æ¯æ¬¡éƒ½ä¼šæ‰§è¡Œ executeæ–¹æ³•
 	@Override
 	public String execute() throws Exception {
 		
@@ -26,7 +26,7 @@ public class HelloAction extends ActionSupport{
 		
 	}
 
-	//´´½¨Ò»¸östuts.xmlºËĞÄÅäÖÃÎÄ¼ş,ÒıÈëdtdÔ¼Êø
-	//ÅäÖÃ¹ıÂËÆ÷
+	//åˆ›å»ºä¸€ä¸ªstuts.xmlæ ¸å¿ƒé…ç½®æ–‡ä»¶,å¼•å…¥dtdçº¦æŸ
+	//é…ç½®è¿‡æ»¤å™¨
 
 }
