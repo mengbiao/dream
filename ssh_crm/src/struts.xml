@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	
+<struts>
+<!-- package 一个配置文件可以有多个package,但是name不能相同， -->
+<!-- extends这个值是固定的，表示如果你写了这个属性，那么在package中配置的类就具有了action属性 -->
+<!-- namespace 明明空间，会和action 的name 构成访问路径 -->
+	<package name="hellodemo" extends="struts-default" namespace="/">
+	
+	<!--action配置访问路径，action标签里边的属性有3个  -->
+	<!-- name 属性 namespace值+action的name 构成访问路径 ， action的name值是不能相同的 -->
+	<!-- class属性 Action类的全路径 -->
+	<!-- method属性，指定action执行的方法 -->
+	<!--  -->
+	   <action name="HelloAction" class="HelloAction">
+	   <!-- result name属性 结果表示 -->
+	   <!-- result type属性 可以使转发，也可以是重定向  默认为转发-->
+	
+	      <result name="ok">/WEB-INF/ok.jsp</result>
+	   </action>
+	</package>
+</struts>

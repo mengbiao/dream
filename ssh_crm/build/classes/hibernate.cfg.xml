@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC       
+ "-//Hibernate/Hibernate Configuration DTD 3.0//EN"      
+   "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+    <hibernate-configuration>    
+        <session-factory>     
+        <!--  
+            <property name="connection.driver_class">com.mysql.jdbc.Driver</property>        
+            <property name="connection.url">jdbc:mysql://localhost:3306/hibernate?characterEncoding=UTF-8</property>        
+            <property name="connection.username">root</property>        
+            <property name="connection.password">123456</property>        
+            <property name="dialect">org.hibernate.dialect.MySQLDialect</property>        
+            <property name="show_sql">true</property>        
+            <property name="hbm2ddl.auto">create</property>        
+            <property name="current_session_context_class">thread</property>       
+             <mapping class="entity.Staff"/>   
+             -->   
+            <!-- <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>   --> 
+           <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property> <!-- 数据库方言 -->       
+            <property name="hibernate.hbm2ddl.auto">update</property> <!-- 没有表创建表,有表更新表 -->
+            <property name="hibernate.format_sql">true</property><!-- 打印sql语句格式 -->
+            <property name="show_sql">true</property>  <!-- 打印sql语句 -->      
+             
+             <mapping resource="entity/user.hbm.xml"/><!-- 把映射文件放入到核心配置文件 -->
+         </session-factory>
+         
+         
+    </hibernate-configuration>

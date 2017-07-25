@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd"
+        >
+        
+        
+        <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+              <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+              <property name="jdbcUrl" value="jdbc:mysql:///user"></property>
+              <property name="user" value="root"></property>
+              <property name="password" value="root"></property>
+        </bean>
+        
+        <!-- 创建sessionFactory -->
+        <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        
+        
+        
+        <!-- 因为核心配置文件中没有数据库的配置，数据库的配置在spring里边。注入dataSource -->
+        <property name="dataSource" ref="dataSource"></property>
+        <!-- 指定hibernate的核心配置文件 -->
+        <property name="configLocations" value="classpath:hibernate.cfg.xml"></property>
+        
+        </bean>
+        
+        <!-- 配置事务管理器 -->
+        <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <!-- 注入sessionFactory 因为sessionfactory中包含datasource-->
+        <property name="sessionFactory" ref="sessionFactory"></property>
+        </bean>
+        
+        <!-- 开启事物的注解 -->
+        <tx:annotation-driven transaction-manager="transactionManager"/>
+        
+        <!-- 配置action对象 -->
+        <bean id="HelloAction" class="action.HelloAction" scope="prototype">
+        <!-- 注入service对象 -->
+              <property name="helloService" ref="helloService"></property>
+        </bean>
+        <!-- 创建service的对象 -->
+        <bean id="helloService" class="service.HelloService">
+        <!-- 注入dao对象 -->
+       
+        <property name="helloDao" ref="helloDaoImpl"></property>
+        </bean>
+        
+        <!-- 创建dao层的对象 -->
+        <bean id="helloDaoImpl" class="dao.HelloDaoImp">
+        <property name="hibernateTemplate" ref="hibernateTemplate"></property>
+        </bean>
+        
+        <!-- 创建HibernateTemplate 模板对象 -->
+        <bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate">
+        <!-- 注入sessionFactory -->
+        <property name="sessionFactory" ref="sessionFactory" ></property>
+        </bean>
+
+
+
+
+
+
+</beans>
